@@ -1,17 +1,25 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+
+import { Outlet, Route, Routes} from "react-router-dom"
+import { AllList } from './components/AllList'
+import { NavBar } from './navbar/NavBar';
 
 function App() {
-
   return (
-    <>
-      <div>
-        <h1>Hi</h1>
-      </div>
-    </>
-  )
+    <Routes>
+      <Route
+        path="/"
+        element={
+          <>
+            <NavBar />
+            <Outlet />
+          </>
+        }
+      >
+        <Route index element={<AllList />} />
+      </Route>
+    </Routes>
+  );
 }
 
-export default App
+
+export default App;
